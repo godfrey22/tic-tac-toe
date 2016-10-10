@@ -10,40 +10,44 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
-<div class="container">
-    <div class="panel panel-heading" align="center">
-        <h1>Welcome to Tic Tac Toe</h1>
-    </div>
+    <div class="container">
+        <div class="panel panel-heading" align="center">
+            <h1>Welcome to Tic Tac Toe</h1>
+        </div>
 
-    <div class="panel panel-default" align="center">
-        <table>
-            <tr>
-                <td><div id="row1 col1" class="square"></div></td>
-                <td><div id="row1 col2" class="square"></div></td>
-                <td><div id="row1 col3" class="square"></div></td>
-            </tr>
-            <tr>
-                <td><div id="row2 col1" class="square"></div></td>
-                <td><div id="row2 col2" class="square"></div></td>
-                <td><div id="row2 col3" class="square"></div></td>
-            </tr>
-            <tr>
-                <td><div id="row3 col1" class="square"></div></td>
-                <td><div id="row3 col2" class="square"></div></td>
-                <td><div id="row3 col3" class="square"></div></td>
-            </tr>
-        </table>
+        <div class="panel panel-default" align="center">
+            <table>
+                <tr>
+                    <td><div col="1" row="1" class="square"></div></td>
+                    <td><div col="2" row="1" class="square"></div></td>
+                    <td><div col="3" row="1" class="square"></div></td>
+                </tr>
+                <tr>
+                    <td><div col="1" row="2" class="square"></div></td>
+                    <td><div col="2" row="2" class="square"></div></td>
+                    <td><div col="3" row="2" class="square"></div></td>
+                </tr>
+                <tr>
+                    <td><div col="1" row="3" class="square"></div></td>
+                    <td><div col="2" row="3" class="square"></div></td>
+                    <td><div col="3" row="3" class="square"></div></td>
+                </tr>
+            </table>
+            <div class="col-md-12">
+                <h3 id="notify">Click on board to start</h3>
+            </div>
+        </div>
+        <div class="col-md-12" align="center">
+            <div class="col-md-3"><button class="btn btn-block">New Game</button></div>
+            <div class="col-md-3"><button class="btn btn-block">Load Game</button></div>
+            <div class="col-md-3"><button class="btn btn-block">Save Game</button></div>
+            <div class="col-md-3"><button class="btn btn-block">Exit Game</button></div>
+        </div>
     </div>
-    <div class="col-md-12" align="center">
-        <div class="col-md-3"><button class="btn btn-block">New Game</button></div>
-        <div class="col-md-3"><button class="btn btn-block">Load Game</button></div>
-        <div class="col-md-3"><button class="btn btn-block">Save Game</button></div>
-        <div class="col-md-3"><button class="btn btn-block">Exit Game</button></div>
-    </div>
-</div>
 
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
