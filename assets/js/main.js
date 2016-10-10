@@ -28,7 +28,6 @@ $( document ).ready(function() {
             count++;
 
             var status = checkWin(row, col, board, count);
-            console.log(status);
             if(status==1){
                 $('#notify').text('Player 1 Win the game.');
                 $('.square').unbind('click', handler);
@@ -48,6 +47,21 @@ $( document ).ready(function() {
     $('#new-btn').click(function() {
         if (confirm('Do you want to start a new game (current progress will be lost)?')){
             location.reload();
+        }
+    });
+
+    $('#load-btn').click(function() {
+        if (confirm('Do you want to load game (current progress will be lost)? ')){
+            board = loadGame()[0];
+            turn = loadGame()[1];
+            $('#notify').text('Game Loaded!');
+        }
+    });
+
+    $('#save-btn').click(function() {
+        if (confirm('Do you want to save current game?')){
+            saveGame(board);
+            $('#notify').text('Game Saved!');
         }
     });
     $('#exit-btn').click(function() {
@@ -71,6 +85,27 @@ function checkWin(row, col, board, count){
     return 0;
 }
 
-function saveGame() {
-    
+function saveGame(board) {
+    localStorage.setItem("game", JSON.stringify(board));
+}
+
+function loadGame() {
+    var board = JSON.parse(localStorage.getItem("game"));
+    var turn = 1;
+    for (i = 0; i < 3; i++) {
+       for (j = 0; j < 3; j++){
+           var row = i+1; var col = j+1;
+           var piece=$("div[row="+row+"][col="+col+"]");
+           if (board[i][j]==1){
+               piece.css("background-image", "url(assets/images/cross.png)");
+                turn *= -1;
+           }else if(board[i][j]==-1){
+               piece.css("background-image", "url(assets/images/circle.png)");
+               turn *= -1;
+           }else{
+               piece.css("background-image", "none");
+           }
+       }
+    }
+    return [board,turn];
 }
