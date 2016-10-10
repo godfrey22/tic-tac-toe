@@ -15,4 +15,17 @@ $( document ).ready(function() {
         }
         turn *= -1;
     });
+
+
+
+    $('#new-btn').click(function() {
+        if (confirm('Do you want to start a new game (current progress will be lost)?')){
+            location.reload();
+        }
+    });
+    $('#exit-btn').click(function() {
+        if (confirm('Do you want to exit game (current progress will be lost)?')){
+            window.close();
+        }
+    });
 });
