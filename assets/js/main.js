@@ -10,8 +10,11 @@ $( document ).ready(function() {
         var row = square.attr('row');
         if (turn == 1){
             $('#notify').text('Player 2\'s Turn');
+            square.css("background-image", "url(assets/images/cross.png)");
         }else{
             $('#notify').text('Player 1\'s Turn');
+            square.css("background-image", "url(assets/images/circle.png)");
+
         }
         turn *= -1;
     });
