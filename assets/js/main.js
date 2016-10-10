@@ -8,6 +8,7 @@ $( document ).ready(function() {
         [0, 0, 0],
         [0, 0, 0]
     ];
+    var count = 0;
 
     var handler = function(){
         var square = $(this);
@@ -24,8 +25,9 @@ $( document ).ready(function() {
             }
             board[row][col] = turn;
             turn *= -1;
+            count++;
 
-            var status = checkWin(row, col, board);
+            var status = checkWin(row, col, board, count);
             console.log(status);
             if(status==1){
                 $('#notify').text('Player 1 Win the game.');
@@ -34,7 +36,9 @@ $( document ).ready(function() {
             }else if(status==-1){
                 $('#notify').text('Player 2 Win the game.');
                 $('.square').unbind('click', handler);
-
+            }else if(status==2){
+                $('#notify').text('It\'s a draw game');
+                $('.square').unbind('click', handler);
             }
         }
     };
@@ -53,7 +57,7 @@ $( document ).ready(function() {
     });
 });
 
-function checkWin(row, col, board){
+function checkWin(row, col, board, count){
     rowCheck = board[row][0] + board[row][1] + board[row][2];
     colCheck = board[0][col] + board[1][col] + board[2][col];
     diaCheck1 = board[0][0] + board[1][1] + board[2][2];
@@ -63,5 +67,10 @@ function checkWin(row, col, board){
     }else if(rowCheck==-3 || colCheck==-3 || diaCheck1== -3 ||  diaCheck2== -3){
         return -1;
     }
+    if (count==9){return 2;}
     return 0;
+}
+
+function saveGame() {
+    
 }
