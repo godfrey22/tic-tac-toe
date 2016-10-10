@@ -52,6 +52,7 @@ $( document ).ready(function() {
 
     $('#load-btn').click(function() {
         if (confirm('Do you want to load game (current progress will be lost)? ')){
+            $('.square').bind('click', handler);
             board = loadGame()[0];
             turn = loadGame()[1];
             $('#notify').text('Game Loaded!');
